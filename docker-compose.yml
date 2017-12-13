@@ -1,11 +1,18 @@
-director-starter:
-  image: rutt/director-starter
-  environment:
-    ACTION_SCRIPTER_URL: http://action-scripter:8081/webhook/
-    AMQP_URL: amqp://guest:guest@174.138.98.230:5672//
-    LOGGER_URL: http://logger:8084/
-    MONGO_URL: mongodb://mongo:27017/local
-    SPLITTER_URL: http://splitter:8082/
-    RANCHER_STACKS_URL: http://174.138.104.227:8080/v2-beta/projects/1a5/stacks
-    RANCHER_USER: 109DA5F2645D8B2D810A
-    RANCHER_KEY: DvE9vMv4Gc32JvnKffYtn4uyeQVgKqxy5PNV6fTm
+version: '2'
+services:
+  director-starter:
+    image: registry.gitlab.com/rutt/director-starter
+    environment:
+      ACTION_SCRIPTER_URL: http://action-scripter:8081/webhook/
+      AMQP_URL: amqp://guest:guest@174.138.98.230:5672//
+      LOGGER_URL: http://logger:8084/
+      MONGO_URL: mongodb://188.166.9.117:27017/local
+      SPLITTER_URL: http://splitter:8082/
+      RANCHER_STACKS_URL: http://174.138.104.227:8080/v2-beta/projects/1a5/stacks
+      RANCHER_USER: 109DA5F2645D8B2D810A
+      RANCHER_KEY: DvE9vMv4Gc32JvnKffYtn4uyeQVgKqxy5PNV6fTm
+    external_links:
+    - mongo/mongo-cluster:mongo
+    labels:
+      io.rancher.container.pull_image: always
+      cron.schedule: 0 * * * * ?
