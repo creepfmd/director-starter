@@ -1,8 +1,9 @@
 version: '2'
 services:
   director-starter:
-    image: registry.gitlab.com/rutt/director-starter
+    image: git.lan.smclinic.ru:4567/rutt/director-starter
     environment:
+      GIT_URL: git.lan.smclinic.ru:4567
       ACTION_SCRIPTER_URL: http://action-scripter:8081/webhook/
       AMQP_URL: amqp://guest:guest@174.138.98.230:5672//
       LOGGER_URL: http://logger:8084/
